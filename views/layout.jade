@@ -43,6 +43,9 @@ html
             $("#lblConnections").text(json.data[0].connections + ' connections');
             $("#lblBlockcountValue").text(json.data[0].blockcount);
 
+            $("#lblConnectionsNav").text(json.data[0].connections);
+            $("#lblBlockcountValueNav").text(json.data[0].blockcount);
+
 
             if (json.data[0].cmc) {
               if (json.data[0].cmc.percent_change_24h) {
@@ -161,10 +164,25 @@ html
 
     .col-md-12
       .row
+        .col-lg-2.col-md-4
+          .panel.panel-primary
+            .panel-heading
+              span General
+            .panel-body
+              row.text-center
+                .col-sm-6.col-xs-12(class="text-right")
+                  span Blocks: 
+                .col-sm-6.col-xs-12(class="text-left")
+                  span#lblBlockcountValueNav.text-primary(style="font-size:18px;")
+              row.text-center
+                .col-sm-6.col-xs-12(class="text-right")
+                  span Connections: 
+                .col-sm-6.col-xs-12(class="text-left")
+                  span#lblConnectionsNav
         if settings.display.masternodes == false
           .col-lg-1.col-md-2
         if settings.display.coinmarketcap == true
-          .col-lg-5.col-md-8
+          .col-lg-4.col-md-7
             .panel.panel-primary.panel-summary
               .panel-heading
                 span Market
@@ -207,7 +225,7 @@ html
                   .col-md-12
                     h1#supply -
         if settings.index.show_hashrate
-          .col-lg-3.col-md-4.col-sm-4
+          .col-lg-2.col-md-3.col-sm-4
             .panel.panel-primary.panel-summary
               .panel-heading
                 span #{settings.locale.network}
